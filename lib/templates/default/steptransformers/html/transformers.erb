@@ -26,7 +26,22 @@
     <div>
       <%= display_comments_for item %>
     </div>
-    
+
+    <!-- Tags -->
+    <div class="tags">
+      <p class="tag_title">Parameters:</p>
+      <% item.tags.each do |tag| %>
+      <% next unless tag.tag_name == 'param' %>
+       <ul class="param">
+        <li>
+          <span class='param_name'><strong><%= tag.name %></strong></span>
+          <span class='type'>(<tt><%= tag.type %></tt>)</span>
+          &mdash;
+          <div class='inline'><%= tag.text %></div>
+        </li>
+      </ul>
+      <% end %>
+    </div>    
 
     <!-- Source Code -->
     <div class="method_details_list">
